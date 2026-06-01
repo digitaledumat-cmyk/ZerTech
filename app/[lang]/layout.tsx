@@ -1,5 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import HomeWhatsAppFloat from '@/components/home/HomeWhatsAppFloat';
+import { Analytics } from '@vercel/analytics/next';
 import { getNavTranslations } from '@/lib/nav-translations';
 import { buildOrganizationJsonLd } from '@/lib/organization-jsonld';
 import type { LangLayoutParams } from '@/lib/nav-types';
@@ -42,6 +44,8 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
         <Navbar translations={translations} />
         <main className="relative flex-1">{children}</main>
         <Footer translations={translations} />
+        <HomeWhatsAppFloat lang={langParam} />
+        <Analytics />
       </body>
     </html>
   );

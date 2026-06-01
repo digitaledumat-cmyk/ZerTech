@@ -9,7 +9,6 @@ import HomeTrialForm from '@/components/home/HomeTrialForm';
 import HomeReviews from '@/components/home/HomeReviews';
 import HomeAccordions from '@/components/home/HomeAccordions';
 import HomeLocalSeo from '@/components/home/HomeLocalSeo';
-import HomeWhatsAppFloat from '@/components/home/HomeWhatsAppFloat';
 import { getHomeContent, buildHomeJsonLd } from '@/lib/home-content';
 import { buildPageMetadata, resolveLang } from '@/lib/page-helpers';
 import { isValidLang } from '@/lib/translations';
@@ -64,8 +63,6 @@ export default async function HomePage({ params }: PageProps) {
           <HomeAccordions guide={content.guide} faq={content.faq} lang={lang} />
           <HomeLocalSeo localSeo={content.localSeo} lang={lang} />
         </div>
-
-        <HomeWhatsAppFloat lang={lang} />
       </div>
     </PageWrapper>
   );
