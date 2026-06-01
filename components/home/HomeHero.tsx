@@ -14,7 +14,7 @@ export default function HomeHero({ hero }: Props) {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_INTRO)}`;
 
   return (
-    <section className="relative overflow-hidden px-4 pb-20 pt-4 md:px-8 md:pb-28 md:pt-8 lg:pt-10">
+    <section className="relative overflow-hidden px-4 pb-20 pt-2 md:px-8 md:pb-28 md:pt-6 lg:pt-8">
       <div className="relative mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-7">
           <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-blue-400/80 md:text-xs">
