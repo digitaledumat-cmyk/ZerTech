@@ -1,23 +1,15 @@
 import type { LegalPageContent } from '@/lib/legal-content';
-import type { Lang } from '@/lib/types';
 
 interface LegalPageProps {
-  lang: Lang;
   content: LegalPageContent;
 }
 
-const updatedLabels: Record<Lang, string> = {
-  fr: 'Dernière mise à jour',
-  es: 'Última actualización',
-  ar: 'آخر تحديث',
-};
-
-export default function LegalPage({ lang, content }: LegalPageProps) {
+export default function LegalPage({ content }: LegalPageProps) {
   return (
     <article className="px-4 py-12 md:px-8">
       <div className="mx-auto max-w-3xl">
         <p className="mb-8 text-sm text-zinc-600">
-          {updatedLabels[lang]} : {content.lastUpdated}
+          Dernière mise à jour : {content.lastUpdated}
         </p>
 
         <div className="space-y-10">

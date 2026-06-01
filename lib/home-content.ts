@@ -322,8 +322,8 @@ function buildHomePacks(lang: PackLang): HomePricingPack[] {
   ];
 }
 
-function enrichHomeContent(lang: Lang, base: HomeContent): HomeContent {
-  const seo = seoTexts[lang];
+function enrichHomeContent(base: HomeContent): HomeContent {
+  const seo = seoTexts.fr;
   return {
     ...base,
     meta: {
@@ -888,12 +888,12 @@ const homeContent: Record<Lang, HomeContent> = {
   },
 };
 
-export function getHomeContent(lang: Lang): HomeContent {
-  return enrichHomeContent(lang, homeContent[lang]);
+export function getHomeContent(): HomeContent {
+  return enrichHomeContent(homeContent.fr);
 }
 
-export function buildHomeJsonLd(lang: Lang) {
-  const content = getHomeContent(lang);
+export function buildHomeJsonLd() {
+  const content = getHomeContent();
   const keywordString = content.meta.keywords.join(', ');
 
   return [
@@ -903,8 +903,8 @@ export function buildHomeJsonLd(lang: Lang) {
       name: content.meta.title,
       description: content.meta.description,
       keywords: keywordString,
-      url: `https://zertech.ma/${lang}`,
-      inLanguage: lang,
+      url: 'https://zertech.ma',
+      inLanguage: 'fr',
       about: {
         '@type': 'Thing',
         name: 'IPTV Maroc Premium',
@@ -918,7 +918,7 @@ export function buildHomeJsonLd(lang: Lang) {
       name: 'ZerTech IPTV Premium — Abonnement IPTV Maroc',
       description: content.meta.description,
       keywords: keywordString,
-      url: `https://zertech.ma/${lang}`,
+      url: 'https://zertech.ma',
       provider: {
         '@type': 'Organization',
         name: 'ZerTech',

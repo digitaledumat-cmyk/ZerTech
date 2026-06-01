@@ -1,20 +1,13 @@
 export {
-  getNavTranslations,
-  getNavbarLinks,
-  getFooterSections,
-  getFooterTranslations,
-  getPlanSiteTranslations,
+  getNavConfig,
+  getPlanSiteContent,
   LEGAL_ROUTE_LABEL_KEYS,
 } from './nav-translations';
-
-export { getLangSwitcherPath, buildLocalizedHref } from './i18n-routing';
 
 export type {
   NavLink,
   NavLabelKey,
-  NavTranslations,
-  LangSwitcherOption,
+  NavConfig,
   NavbarProps,
   FooterProps,
-  LangLayoutParams,
 } from './nav-types';

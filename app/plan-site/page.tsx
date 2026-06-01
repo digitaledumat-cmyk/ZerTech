@@ -2,27 +2,19 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageWrapper from '@/components/PageWrapper';
 import PageHeader from '@/components/PageHeader';
-import { resolveLang, buildPageMetadata } from '@/lib/page-helpers';
-import { getPlanSiteTranslations } from '@/lib/footer-translations';
+import { buildPageMetadata } from '@/lib/page-helpers';
+import { getPlanSiteContent } from '@/lib/nav-translations';
+import { buildHref } from '@/lib/routes';
 import { ROUTES } from '@/lib/routes';
-import { getBlogPostsByLang } from '@/lib/blog-data';
+import { getBlogPosts } from '@/lib/blog-data';
 
-interface PageProps {
-  params: Promise<{ lang: string }>;
+export async function generateMetadata(): Promise<Metadata> {
+  const content = getPlanSiteContent();
+  return buildPageMetadata(content.title, content.description, ROUTES.planSite);
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const lang = await resolveLang(params);
-  const content = getPlanSiteTranslations(lang);
-  return buildPageMetadata(lang, content.title, content.description, ROUTES.planSite);
-}
-
-export default async function PlanSitePage({ params }: PageProps) {
-  const lang = await resolveLang(params);
-  const content = getPlanSiteTranslations(lang);
-
-  const blogLabel =
-    lang === 'fr' ? 'Articles du blog' : lang === 'es' ? 'Artículos del blog' : 'مقالات المدونة';
+export default function PlanSitePage() {
+  const content = getPlanSiteContent();
 
   return (
     <PageWrapper>
@@ -38,7 +30,7 @@ export default async function PlanSitePage({ params }: PageProps) {
                 {section.links.map((link) => (
                   <li key={link.route || 'home'}>
                     <Link
-                      href={link.route ? `/${lang}/${link.route}` : `/${lang}`}
+                      href={buildHref(link.route)}
                       className="text-sm text-zinc-400 transition-colors hover:text-primary"
                     >
                       {link.label}
@@ -50,20 +42,20 @@ export default async function PlanSitePage({ params }: PageProps) {
           ))}
 
           <section className="glass-card p-6 md:p-8">
-            <h2 className="mb-4 text-lg font-semibold text-zinc-200">{blogLabel}</h2>
+            <h2 className="mb-4 text-lg font-semibold text-zinc-200">Articles du blog</h2>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href={`/${lang}/blog`}
+                  href="/blog"
                   className="text-sm text-zinc-400 transition-colors hover:text-primary"
                 >
                   Blog
                 </Link>
               </li>
-              {getBlogPostsByLang(lang).map((post) => (
+              {getBlogPosts().map((post) => (
                 <li key={post.id}>
                   <Link
-                    href={`/${lang}/blog/${post.slug}`}
+                    href={`/blog/${post.slug}`}
                     className="text-sm text-zinc-400 transition-colors hover:text-primary"
                   >
                     {post.title}

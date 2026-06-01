@@ -2,25 +2,21 @@
 
 import { useState } from 'react';
 import type { HomeContent } from '@/lib/home-content';
-import { textDirClass } from '@/lib/home-utils';
-import type { Lang } from '@/lib/types';
-import { COUNTRY_CODES, EXTRA_COUNTRY_CODES, WHATSAPP_NUMBER } from '@/lib/translations';
+import { DEFAULT_COUNTRY, EXTRA_COUNTRY_CODES, WHATSAPP_NUMBER } from '@/lib/translations';
 import { WhatsAppIcon } from './HomeIcons';
 
 interface Props {
   trial: HomeContent['trial'];
   packs: HomeContent['pricing']['packs'];
-  lang: Lang;
 }
 
-export default function HomeTrialForm({ trial, packs, lang }: Props) {
+export default function HomeTrialForm({ trial, packs }: Props) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState(COUNTRY_CODES[lang].code);
+  const [countryCode, setCountryCode] = useState(DEFAULT_COUNTRY.code);
   const [selectedPack, setSelectedPack] = useState('');
 
-  const dir = textDirClass(lang);
   const inputClass =
     'w-full rounded-xl border border-white/15 bg-gradient-to-br from-white/10 to-transparent px-4 py-3 text-zinc-100 outline-none backdrop-blur-xl transition-colors focus:border-blue-600/50 focus:ring-1 focus:ring-blue-600/30';
 
@@ -44,14 +40,14 @@ export default function HomeTrialForm({ trial, packs, lang }: Props) {
   };
 
   const countryOptions = [
-    COUNTRY_CODES[lang],
-    ...EXTRA_COUNTRY_CODES.filter((c) => c.code !== COUNTRY_CODES[lang].code),
+    DEFAULT_COUNTRY,
+    ...EXTRA_COUNTRY_CODES.filter((c) => c.code !== DEFAULT_COUNTRY.code),
   ];
 
   return (
     <section id="trial" className="px-4 py-16 md:px-8 md:py-20">
       <div className="mx-auto max-w-3xl">
-        <div className={`pricing-card mb-8 p-6 md:p-8 ${dir}`}>
+        <div className="pricing-card mb-8 p-6 md:p-8">
           <h2 className="title-gradient text-xl font-bold md:text-2xl">{trial.guideTitle}</h2>
           <div className="mt-5 space-y-4">
             {trial.guideParagraphs.map((paragraph) => (
@@ -62,7 +58,7 @@ export default function HomeTrialForm({ trial, packs, lang }: Props) {
           </div>
         </div>
 
-        <div className={`pricing-card p-6 md:p-8 ${dir}`}>
+        <div className="pricing-card p-6 md:p-8">
           <h2 className="title-gradient text-2xl font-bold">{trial.title}</h2>
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">{trial.subtitle}</p>
 

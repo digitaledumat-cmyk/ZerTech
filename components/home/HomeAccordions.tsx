@@ -2,28 +2,23 @@
 
 import { useState } from 'react';
 import type { HomeContent } from '@/lib/home-content';
-import { textDirClass } from '@/lib/home-utils';
-import type { Lang } from '@/lib/types';
 
 interface Props {
   guide: HomeContent['guide'];
   faq: HomeContent['faq'];
-  lang: Lang;
 }
 
 function AccordionBlock({
   title,
   items,
-  dir,
 }: {
   title: string;
   items: { question: string; answer: string }[];
-  dir: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className={dir}>
+    <div>
       <h2 className="title-gradient mb-2 text-center text-2xl font-bold md:text-start md:text-3xl">{title}</h2>
       <div className="orange-highlight mb-6 mx-auto md:mx-0" aria-hidden="true" />
       <div className="space-y-3">
@@ -68,14 +63,13 @@ function AccordionBlock({
   );
 }
 
-export default function HomeAccordions({ guide, faq, lang }: Props) {
-  const dir = textDirClass(lang);
+export default function HomeAccordions({ guide, faq }: Props) {
 
   return (
     <section id="faq" className="px-4 py-16 md:px-8 md:py-20">
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:gap-10">
-        <AccordionBlock title={guide.title} items={guide.items} dir={dir} />
-        <AccordionBlock title={faq.title} items={faq.items} dir={dir} />
+        <AccordionBlock title={guide.title} items={guide.items} />
+        <AccordionBlock title={faq.title} items={faq.items} />
       </div>
     </section>
   );

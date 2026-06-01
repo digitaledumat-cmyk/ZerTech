@@ -167,21 +167,21 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-/** Récupère un article par slug et langue active. */
-export function getBlogPost(slug: string, lang: Lang): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug && post.lang === lang);
+/** Récupère un article par slug. */
+export function getBlogPost(slug: string): BlogPost | undefined {
+  return blogPosts.find((post) => post.slug === slug && post.lang === 'fr');
 }
 
-/** Liste les articles disponibles pour une langue. */
-export function getBlogPostsByLang(lang: Lang): BlogPost[] {
+/** Liste les articles disponibles. */
+export function getBlogPosts(): BlogPost[] {
   return blogPosts
-    .filter((post) => post.lang === lang)
+    .filter((post) => post.lang === 'fr')
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-/** Params statiques pour generateStaticParams (slug × langue). */
-export function getBlogStaticParams(): { lang: Lang; slug: string }[] {
-  return blogPosts.map(({ lang, slug }) => ({ lang, slug }));
+/** Params statiques pour generateStaticParams. */
+export function getBlogStaticParams(): { slug: string }[] {
+  return getUniqueBlogSlugs().map((slug) => ({ slug }));
 }
 
 /** Slugs uniques (utile pour le sitemap). */

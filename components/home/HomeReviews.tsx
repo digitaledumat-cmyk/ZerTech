@@ -1,10 +1,7 @@
 import type { HomeContent } from '@/lib/home-content';
-import { textDirClass } from '@/lib/home-utils';
-import type { Lang } from '@/lib/types';
 
 interface Props {
   reviews: HomeContent['reviews'];
-  lang: Lang;
 }
 
 function StarRating({ rating }: { rating: number }) {
@@ -19,12 +16,11 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-export default function HomeReviews({ reviews, lang }: Props) {
-  const dir = textDirClass(lang);
+export default function HomeReviews({ reviews }: Props) {
 
   return (
     <section className="px-4 py-16 md:px-8 md:py-20">
-      <div className={`mx-auto max-w-7xl ${dir}`}>
+      <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <h2 className="title-gradient text-2xl font-bold md:text-3xl">{reviews.title}</h2>
           <div className="orange-highlight mx-auto mt-3" aria-hidden="true" />

@@ -1,16 +1,16 @@
 import Link from 'next/link';
-import { buildLocalizedHref } from '@/lib/i18n-routing';
+import { buildHref } from '@/lib/routes';
 import type { FooterProps } from '@/lib/nav-types';
 
-export default function Footer({ translations }: FooterProps) {
-  const { lang, footer, ui, brand } = translations;
+export default function Footer({ nav }: FooterProps) {
+  const { footer, ui, brand } = nav;
 
   return (
     <footer className="relative border-t border-white/5 bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-8">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <Link href={buildLocalizedHref(lang, '')} className="inline-flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center gap-2">
               <span className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-primary to-accent text-xs font-black text-white">
                 Z
               </span>
@@ -40,7 +40,7 @@ export default function Footer({ translations }: FooterProps) {
               {footer.navigation.links.map((link) => (
                 <li key={link.route || 'home'}>
                   <Link
-                    href={buildLocalizedHref(lang, link.route)}
+                    href={buildHref(link.route)}
                     className="text-sm text-zinc-500 transition-colors hover:text-primary"
                   >
                     {link.label}
@@ -58,7 +58,7 @@ export default function Footer({ translations }: FooterProps) {
               {footer.legal.links.map((link) => (
                 <li key={link.route}>
                   <Link
-                    href={buildLocalizedHref(lang, link.route)}
+                    href={buildHref(link.route)}
                     className="text-sm text-zinc-500 transition-colors hover:text-primary"
                   >
                     {link.label}
@@ -76,7 +76,7 @@ export default function Footer({ translations }: FooterProps) {
               {footer.support.links.map((link) => (
                 <li key={link.route}>
                   <Link
-                    href={buildLocalizedHref(lang, link.route)}
+                    href={buildHref(link.route)}
                     className="text-sm text-zinc-500 transition-colors hover:text-primary"
                   >
                     {link.label}

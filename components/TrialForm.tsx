@@ -4,22 +4,20 @@ import { useState } from 'react';
 import type { Translations } from '@/lib/types';
 import {
   WHATSAPP_NUMBER,
-  COUNTRY_CODES,
+  DEFAULT_COUNTRY,
   EXTRA_COUNTRY_CODES,
 } from '@/lib/translations';
-import type { Lang } from '@/lib/types';
 
 interface TrialFormProps {
   t: Translations['trial'];
   packs: Translations['pricing']['packs'];
-  lang: Lang;
 }
 
-export default function TrialForm({ t, packs, lang }: TrialFormProps) {
+export default function TrialForm({ t, packs }: TrialFormProps) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState(COUNTRY_CODES[lang].code);
+  const [countryCode, setCountryCode] = useState(DEFAULT_COUNTRY.code);
   const [selectedPack, setSelectedPack] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -89,7 +87,7 @@ export default function TrialForm({ t, packs, lang }: TrialFormProps) {
                   className="rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-zinc-100 outline-none focus:border-primary/50"
                   aria-label="Indicatif pays"
                 >
-                  {[COUNTRY_CODES[lang], ...EXTRA_COUNTRY_CODES.filter((c) => c.code !== COUNTRY_CODES[lang].code)].map(
+                  {[DEFAULT_COUNTRY, ...EXTRA_COUNTRY_CODES.filter((c) => c.code !== DEFAULT_COUNTRY.code)].map(
                     (c) => (
                       <option key={c.code} value={c.code} className="bg-zinc-900">
                         {c.label}

@@ -515,8 +515,8 @@ export const LEGAL_CONTENT: Record<Lang, Record<LegalSlug, LegalPageContent>> = 
   ar: buildLegalPages('ar'),
 };
 
-export function getLegalContent(route: LegalSlug, lang: Lang): LegalPageContent {
-  return LEGAL_CONTENT[lang][route];
+export function getLegalContent(route: LegalSlug): LegalPageContent {
+  return LEGAL_CONTENT.fr[route];
 }
 
 export function getAllLegalRoutes(): LegalSlug[] {

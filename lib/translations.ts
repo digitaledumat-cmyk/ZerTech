@@ -575,12 +575,10 @@ const translations: Record<Lang, Translations> = {
   },
 };
 
-export function isValidLang(lang: string): lang is Lang {
-  return lang === 'fr' || lang === 'es' || lang === 'ar';
-}
+export const DEFAULT_COUNTRY = { code: '+212', label: '🇲🇦 +212' };
 
-export function getTranslations(lang: Lang): Translations {
-  return translations[lang];
+export function getSiteTranslations(): Translations {
+  return translations.fr;
 }
 
 export const LOCAL_SEO_CITIES = [

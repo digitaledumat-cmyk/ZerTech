@@ -1,18 +1,14 @@
 import type { HomeContent } from '@/lib/home-content';
-import { textDirClass } from '@/lib/home-utils';
-import type { Lang } from '@/lib/types';
 
 interface Props {
   localSeo: HomeContent['localSeo'];
-  lang: Lang;
 }
 
-export default function HomeLocalSeo({ localSeo, lang }: Props) {
-  const dir = textDirClass(lang);
+export default function HomeLocalSeo({ localSeo }: Props) {
 
   return (
     <section className="px-4 pb-20 md:px-8 md:pb-24" aria-labelledby="local-seo-title">
-      <div className={`mx-auto max-w-7xl ${dir}`}>
+      <div className="mx-auto max-w-7xl">
         {/* H2 + introduction */}
         <header className="mx-auto mb-10 max-w-3xl text-center">
           <h2 id="local-seo-title" className="title-gradient text-2xl font-bold md:text-3xl">

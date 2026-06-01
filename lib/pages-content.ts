@@ -239,180 +239,71 @@ const expandedGuide: Record<Lang, { intro: string; tips: string[]; items: Accord
   },
 };
 
-export function getAbonnementContent(lang: Lang): AbonnementContent {
-  const content: Record<Lang, AbonnementContent> = {
-    fr: {
-      title: 'Abonnement IPTV Premium',
-      description: 'Découvrez nos packs IPTV premium 4K UHD pour le Maroc et l\'Europe. Stabilité absolue, anti-freeze intelligent et support 24/7.',
-      intro: 'ZerTech propose la meilleure expérience IPTV premium avec plus de 45 000 chaînes, 180 000 VOD et une infrastructure serveur haute disponibilité. Choisissez le pack adapté à vos besoins et profitez d\'un streaming cristallin sans coupure.',
-      features: [
-        'Activation instantanée via WhatsApp',
-        'Serveurs OTT VPS haute performance',
-        'Anti-freeze intelligent 2.0 / 2.2',
-        'Qualité HD, FHD et 4K UHD',
-        'Garantie 45 jours satisfait ou remboursé',
-        'Support technique 24h/24, 7j/7',
-      ],
-      cta: 'Demander un test gratuit 24h',
-    },
-    es: {
-      title: 'Suscripción IPTV Premium',
-      description: 'Descubra nuestros packs IPTV premium 4K UHD para Marruecos y Europa. Estabilidad absoluta, anti-freeze inteligente y soporte 24/7.',
-      intro: 'ZerTech ofrece la mejor experiencia IPTV premium con más de 45 000 canales, 180 000 VOD e infraestructura de servidores de alta disponibilidad.',
-      features: [
-        'Activación instantánea vía WhatsApp',
-        'Servidores OTT VPS de alto rendimiento',
-        'Anti-freeze inteligente 2.0 / 2.2',
-        'Calidad HD, FHD y 4K UHD',
-        'Garantía 45 días satisfecho o reembolso',
-        'Soporte técnico 24/7',
-      ],
-      cta: 'Solicitar prueba gratis 24h',
-    },
-    ar: {
-      title: 'اشتراك IPTV بريميوم',
-      description: 'اكتشف باقات IPTV بريميوم 4K UHD للمغرب وأوروبا. استقرار مطلق، Anti-freeze ذكي ودعم 24/7.',
-      intro: 'ZerTech تقدم أفضل تجربة IPTV بريميوم مع أكثر من 45,000 قناة و180,000 VOD وبنية خوادم عالية التوفر.',
-      features: [
-        'تفعيل فوري عبر WhatsApp',
-        'خوادم OTT VPS عالية الأداء',
-        'Anti-freeze ذكي 2.0 / 2.2',
-        'جودة HD و FHD و 4K UHD',
-        'ضمان 45 يوماً راضٍ أو استرداد',
-        'دعم فني 24/7',
-      ],
-      cta: 'طلب تجربة مجانية 24 ساعة',
-    },
+export function getAbonnementContent(): AbonnementContent {
+  return {
+    title: 'Abonnement IPTV Premium',
+    description: 'Découvrez nos packs IPTV premium 4K UHD pour le Maroc et l\'Europe. Stabilité absolue, anti-freeze intelligent et support 24/7.',
+    intro: 'ZerTech propose la meilleure expérience IPTV premium avec plus de 45 000 chaînes, 180 000 VOD et une infrastructure serveur haute disponibilité. Choisissez le pack adapté à vos besoins et profitez d\'un streaming cristallin sans coupure.',
+    features: [
+      'Activation instantanée via WhatsApp',
+      'Serveurs OTT VPS haute performance',
+      'Anti-freeze intelligent 2.0 / 2.2',
+      'Qualité HD, FHD et 4K UHD',
+      'Garantie 45 jours satisfait ou remboursé',
+      'Support technique 24h/24, 7j/7',
+    ],
+    cta: 'Demander un test gratuit 24h',
   };
-  return content[lang];
 }
 
-export function getGuideContent(lang: Lang): GuideContent {
-  const g = expandedGuide[lang];
-  const titles: Record<Lang, PageContent> = {
-    fr: { title: 'Guide d\'installation complet', description: 'Tutoriels pas à pas pour installer ZerTech IPTV sur Smart TV, Android, Firestick et iOS.' },
-    es: { title: 'Guía de instalación completa', description: 'Tutoriales paso a paso para instalar ZerTech IPTV en Smart TV, Android, Firestick e iOS.' },
-    ar: { title: 'دليل التثبيت الكامل', description: 'دروس خطوة بخطوة لتثبيت ZerTech IPTV على Smart TV و Android و Firestick و iOS.' },
+export function getGuideContent(): GuideContent {
+  return {
+    title: 'Guide d\'installation complet',
+    description: 'Tutoriels pas à pas pour installer ZerTech IPTV sur Smart TV, Android, Firestick et iOS.',
+    ...expandedGuide.fr,
   };
-  return { ...titles[lang], ...g };
 }
 
-export function getFaqPageContent(lang: Lang): FaqPageContent {
-  const titles: Record<Lang, { title: string; description: string; intro: string }> = {
-    fr: {
-      title: 'Centre d\'aide & FAQ',
-      description: 'Toutes les réponses sur la stabilité, l\'activation, le remboursement et le support ZerTech IPTV.',
-      intro: 'Consultez notre FAQ complète ou contactez notre support WhatsApp disponible 24h/24 pour une assistance personnalisée.',
-    },
-    es: {
-      title: 'Centro de ayuda & FAQ',
-      description: 'Todas las respuestas sobre estabilidad, activación, reembolso y soporte ZerTech IPTV.',
-      intro: 'Consulte nuestra FAQ completa o contacte nuestro soporte WhatsApp 24/7.',
-    },
-    ar: {
-      title: 'مركز المساعدة & FAQ',
-      description: 'جميع الإجابات حول الاستقرار والتفعيل والاسترداد ودعم ZerTech IPTV.',
-      intro: 'راجع FAQ الكامل أو تواصل مع دعم WhatsApp 24/7.',
-    },
+export function getFaqPageContent(): FaqPageContent {
+  return {
+    title: 'Centre d\'aide & FAQ',
+    description: 'Toutes les réponses sur la stabilité, l\'activation, le remboursement et le support ZerTech IPTV.',
+    intro: 'Consultez notre FAQ complète ou contactez notre support WhatsApp disponible 24h/24 pour une assistance personnalisée.',
+    items: expandedFaq.fr,
   };
-  return { ...titles[lang], items: expandedFaq[lang] };
 }
 
-export function getContactContent(lang: Lang): ContactContent {
-  const content: Record<Lang, ContactContent> = {
-    fr: {
-      title: 'Contactez-nous',
-      description: 'Support ZerTech 24h/24 via WhatsApp, email et formulaire de contact.',
-      intro: 'Notre équipe est disponible 24h/24 et 7j/7 pour répondre à toutes vos questions sur l\'abonnement, l\'installation et le support technique.',
-      coordinates: {
-        whatsapp: '+212 664 140 211',
-        email: 'contact@zertech.ma',
-        support: 'Support 24h/24, 7j/7',
-      },
-      form: {
-        name: 'Nom complet',
-        email: 'Adresse email',
-        phone: 'Numéro de téléphone',
-        subject: 'Sujet',
-        message: 'Votre message',
-        submit: 'Envoyer via WhatsApp',
-        whatsappIntro: 'Bonjour ZerTech,',
-        subjects: ['Demande d\'information', 'Support technique', 'Abonnement & paiement', 'Remboursement', 'Autre'],
-      },
+export function getContactContent(): ContactContent {
+  return {
+    title: 'Contactez-nous',
+    description: 'Support ZerTech 24h/24 via WhatsApp, email et formulaire de contact.',
+    intro: 'Notre équipe est disponible 24h/24 et 7j/7 pour répondre à toutes vos questions sur l\'abonnement, l\'installation et le support technique.',
+    coordinates: {
+      whatsapp: '+212 664 140 211',
+      email: 'contact@zertech.ma',
+      support: 'Support 24h/24, 7j/7',
     },
-    es: {
-      title: 'Contáctenos',
-      description: 'Soporte ZerTech 24/7 vía WhatsApp, email y formulario de contacto.',
-      intro: 'Nuestro equipo está disponible 24/7 para responder todas sus preguntas.',
-      coordinates: {
-        whatsapp: '+212 664 140 211',
-        email: 'contact@zertech.ma',
-        support: 'Soporte 24/7',
-      },
-      form: {
-        name: 'Nombre completo',
-        email: 'Correo electrónico',
-        phone: 'Número de teléfono',
-        subject: 'Asunto',
-        message: 'Su mensaje',
-        submit: 'Enviar por WhatsApp',
-        whatsappIntro: 'Hola ZerTech,',
-        subjects: ['Información', 'Soporte técnico', 'Suscripción & pago', 'Reembolso', 'Otro'],
-      },
-    },
-    ar: {
-      title: 'اتصل بنا',
-      description: 'دعم ZerTech 24/7 عبر WhatsApp والبريد الإلكتروني ونموذج الاتصال.',
-      intro: 'فريقنا متاح 24/7 للإجابة على جميع أسئلتك.',
-      coordinates: {
-        whatsapp: '+212 664 140 211',
-        email: 'contact@zertech.ma',
-        support: 'دعم 24/7',
-      },
-      form: {
-        name: 'الاسم الكامل',
-        email: 'البريد الإلكتروني',
-        phone: 'رقم الهاتف',
-        subject: 'الموضوع',
-        message: 'رسالتك',
-        submit: 'إرسال عبر WhatsApp',
-        whatsappIntro: 'مرحباً ZerTech،',
-        subjects: ['طلب معلومات', 'دعم فني', 'اشتراك ودفع', 'استرداد', 'أخرى'],
-      },
+    form: {
+      name: 'Nom complet',
+      email: 'Adresse email',
+      phone: 'Numéro de téléphone',
+      subject: 'Sujet',
+      message: 'Votre message',
+      submit: 'Envoyer via WhatsApp',
+      whatsappIntro: 'Bonjour ZerTech,',
+      subjects: ['Demande d\'information', 'Support technique', 'Abonnement & paiement', 'Remboursement', 'Autre'],
     },
   };
-  return content[lang];
 }
 
-export function getBlogContent(lang: Lang): BlogContent {
-  const content: Record<Lang, BlogContent> = {
-    fr: {
-      title: 'Blog ZerTech',
-      description: 'Articles SEO sur l\'IPTV premium, l\'installation, les comparatifs et les actualités streaming au Maroc et en Europe.',
-      intro: 'Guides, tutoriels et analyses pour tirer le meilleur parti de votre abonnement IPTV ZerTech.',
-      readMore: 'Lire l\'article',
-      backToBlog: 'Retour au blog',
-      published: 'Publié le',
-      category: 'Catégorie',
-    },
-    es: {
-      title: 'Blog ZerTech',
-      description: 'Artículos SEO sobre IPTV premium, instalación, comparativas y actualidades streaming en Marruecos y Europa.',
-      intro: 'Guías, tutoriales y análisis para aprovechar al máximo su suscripción IPTV ZerTech.',
-      readMore: 'Leer artículo',
-      backToBlog: 'Volver al blog',
-      published: 'Publicado el',
-      category: 'Categoría',
-    },
-    ar: {
-      title: 'مدونة ZerTech',
-      description: 'مقالات SEO حول IPTV بريميوم والتثبيت والمقارنات وأخبار البث في المغرب وأوروبا.',
-      intro: 'أدلة ودروس وتحليلات للاستفادة القصوى من اشتراك ZerTech IPTV.',
-      readMore: 'قراءة المقال',
-      backToBlog: 'العودة للمدونة',
-      published: 'نُشر في',
-      category: 'الفئة',
-    },
+export function getBlogContent(): BlogContent {
+  return {
+    title: 'Blog ZerTech',
+    description: 'Articles SEO sur l\'IPTV premium, l\'installation, les comparatifs et les actualités streaming au Maroc et en Europe.',
+    intro: 'Guides, tutoriels et analyses pour tirer le meilleur parti de votre abonnement IPTV ZerTech.',
+    readMore: 'Lire l\'article',
+    backToBlog: 'Retour au blog',
+    published: 'Publié le',
+    category: 'Catégorie',
   };
-  return content[lang];
 }

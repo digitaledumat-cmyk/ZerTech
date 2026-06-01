@@ -2,24 +2,18 @@ import type { Metadata } from 'next';
 import PageWrapper from '@/components/PageWrapper';
 import PageHeader from '@/components/PageHeader';
 import ContactForm from '@/components/ContactForm';
-import { resolveLang, buildPageMetadata } from '@/lib/page-helpers';
+import { buildPageMetadata } from '@/lib/page-helpers';
 import { getContactContent } from '@/lib/pages-content';
 import { ROUTES } from '@/lib/routes';
 import { WHATSAPP_NUMBER } from '@/lib/translations';
 
-interface PageProps {
-  params: Promise<{ lang: string }>;
+export async function generateMetadata(): Promise<Metadata> {
+  const content = getContactContent();
+  return buildPageMetadata(content.title, content.description, ROUTES.contact);
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const lang = await resolveLang(params);
-  const content = getContactContent(lang);
-  return buildPageMetadata(lang, content.title, content.description, ROUTES.contact);
-}
-
-export default async function ContactPage({ params }: PageProps) {
-  const lang = await resolveLang(params);
-  const content = getContactContent(lang);
+export default function ContactPage() {
+  const content = getContactContent();
 
   return (
     <PageWrapper>
@@ -50,15 +44,13 @@ export default async function ContactPage({ params }: PageProps) {
                 </a>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-zinc-300">
-                  {lang === 'fr' ? 'Disponibilité' : lang === 'es' ? 'Disponibilidad' : 'التوفر'}
-                </h3>
+                <h3 className="text-sm font-semibold text-zinc-300">Disponibilité</h3>
                 <p className="mt-1 text-zinc-400">{content.coordinates.support}</p>
               </div>
             </div>
           </div>
           <div className="glass-card p-6 md:p-8">
-            <ContactForm t={content} lang={lang} />
+            <ContactForm t={content} />
           </div>
         </div>
       </main>

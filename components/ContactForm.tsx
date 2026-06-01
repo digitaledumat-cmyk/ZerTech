@@ -2,23 +2,21 @@
 
 import { useState } from 'react';
 import type { ContactContent } from '@/lib/pages-content';
-import type { Lang } from '@/lib/types';
 import {
   WHATSAPP_NUMBER,
-  COUNTRY_CODES,
+  DEFAULT_COUNTRY,
   EXTRA_COUNTRY_CODES,
 } from '@/lib/translations';
 
 interface ContactFormProps {
   t: ContactContent;
-  lang: Lang;
 }
 
-export default function ContactForm({ t, lang }: ContactFormProps) {
+export default function ContactForm({ t }: ContactFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState(COUNTRY_CODES[lang].code);
+  const [countryCode, setCountryCode] = useState(DEFAULT_COUNTRY.code);
   const [subject, setSubject] = useState(t.form.subjects[0]);
   const [message, setMessage] = useState('');
 
@@ -87,7 +85,7 @@ export default function ContactForm({ t, lang }: ContactFormProps) {
             className="rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-zinc-100 outline-none focus:border-primary/50"
             aria-label="Indicatif"
           >
-            {[COUNTRY_CODES[lang], ...EXTRA_COUNTRY_CODES.filter((c) => c.code !== COUNTRY_CODES[lang].code)].map(
+            {[DEFAULT_COUNTRY, ...EXTRA_COUNTRY_CODES.filter((c) => c.code !== DEFAULT_COUNTRY.code)].map(
               (c) => (
                 <option key={c.code} value={c.code} className="bg-zinc-900">
                   {c.label}

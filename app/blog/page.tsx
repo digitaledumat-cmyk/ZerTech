@@ -3,25 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageWrapper from '@/components/PageWrapper';
 import PageHeader from '@/components/PageHeader';
-import { resolveLang, buildPageMetadata } from '@/lib/page-helpers';
+import { buildPageMetadata } from '@/lib/page-helpers';
 import { getBlogContent } from '@/lib/pages-content';
-import { getBlogPostsByLang, getReadTime } from '@/lib/blog-data';
+import { getBlogPosts, getReadTime } from '@/lib/blog-data';
 import { ROUTES } from '@/lib/routes';
 
-interface PageProps {
-  params: Promise<{ lang: string }>;
+export async function generateMetadata(): Promise<Metadata> {
+  const content = getBlogContent();
+  return buildPageMetadata(content.title, content.description, ROUTES.blog);
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const lang = await resolveLang(params);
-  const content = getBlogContent(lang);
-  return buildPageMetadata(lang, content.title, content.description, ROUTES.blog);
-}
-
-export default async function BlogPage({ params }: PageProps) {
-  const lang = await resolveLang(params);
-  const content = getBlogContent(lang);
-  const posts = getBlogPostsByLang(lang);
+export default function BlogPage() {
+  const content = getBlogContent();
+  const posts = getBlogPosts();
 
   return (
     <PageWrapper>
@@ -47,7 +41,7 @@ export default async function BlogPage({ params }: PageProps) {
                 <div className="flex flex-1 flex-col p-6">
                   <h2 className="text-lg font-semibold text-zinc-100">
                     <Link
-                      href={`/${lang}/blog/${post.slug}`}
+                      href={`/blog/${post.slug}`}
                       className="transition-colors hover:text-primary"
                     >
                       {post.title}
@@ -59,14 +53,12 @@ export default async function BlogPage({ params }: PageProps) {
                   <footer className="mt-4 flex items-center justify-between border-t border-white/5 pt-4 text-xs text-zinc-600">
                     <time dateTime={post.date}>
                       {content.published}{' '}
-                      {new Date(post.date).toLocaleDateString(
-                        lang === 'ar' ? 'ar-MA' : lang === 'es' ? 'es-ES' : 'fr-FR',
-                      )}
+                      {new Date(post.date).toLocaleDateString('fr-FR')}
                     </time>
                     <span>{getReadTime(post)} min</span>
                   </footer>
                   <Link
-                    href={`/${lang}/blog/${post.slug}`}
+                    href={`/blog/${post.slug}`}
                     className="mt-4 text-sm font-medium text-primary transition-colors hover:text-accent"
                   >
                     {content.readMore} →

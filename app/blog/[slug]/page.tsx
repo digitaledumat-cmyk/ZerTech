@@ -3,12 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageWrapper from '@/components/PageWrapper';
-import { resolveLang, buildPageMetadata } from '@/lib/page-helpers';
+import { buildPageMetadata } from '@/lib/page-helpers';
 import { getBlogContent } from '@/lib/pages-content';
 import { getBlogPost, getBlogStaticParams, getReadTime } from '@/lib/blog-data';
 
 interface PageProps {
-  params: Promise<{ lang: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -17,17 +17,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const lang = await resolveLang(params);
-  const post = getBlogPost(slug, lang);
+  const post = getBlogPost(slug);
   if (!post) return {};
-  return buildPageMetadata(lang, post.title, post.description, `blog/${slug}`);
+  return buildPageMetadata(post.title, post.description, `blog/${slug}`);
 }
 
 export default async function BlogArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const lang = await resolveLang(params);
-  const post = getBlogPost(slug, lang);
-  const labels = getBlogContent(lang);
+  const post = getBlogPost(slug);
+  const labels = getBlogContent();
 
   if (!post) notFound();
 
@@ -38,7 +36,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
       <article className="px-4 py-12 md:px-8">
         <div className="mx-auto max-w-3xl">
           <Link
-            href={`/${lang}/blog`}
+            href="/blog"
             className="mb-8 inline-flex text-sm text-primary transition-colors hover:text-accent"
           >
             ← {labels.backToBlog}
@@ -60,9 +58,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
             <div className="mt-4 flex gap-4 text-sm text-zinc-500">
               <time dateTime={post.date}>
                 {labels.published}{' '}
-                {new Date(post.date).toLocaleDateString(
-                  lang === 'ar' ? 'ar-MA' : lang === 'es' ? 'es-ES' : 'fr-FR',
-                )}
+                {new Date(post.date).toLocaleDateString('fr-FR')}
               </time>
               <span>{readTime} min</span>
             </div>

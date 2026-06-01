@@ -1,12 +1,9 @@
 import { Activity, Award, Clock, Server, Shield, Users, Zap } from 'lucide-react';
 import type { HomeContent } from '@/lib/home-content';
-import { textDirClass } from '@/lib/home-utils';
-import type { Lang } from '@/lib/types';
 import type { LucideIcon } from 'lucide-react';
 
 interface Props {
   stats: HomeContent['stats'];
-  lang: Lang;
 }
 
 const STAT_ICONS: {
@@ -56,8 +53,7 @@ const BENEFIT_CONFIG: {
   },
 ];
 
-export default function HomeStats({ stats, lang }: Props) {
-  const dir = textDirClass(lang);
+export default function HomeStats({ stats }: Props) {
 
   return (
     <section className="relative px-4 py-16 md:px-8 md:py-20">
@@ -67,7 +63,7 @@ export default function HomeStats({ stats, lang }: Props) {
         aria-hidden="true"
       />
 
-      <div className={`relative mx-auto max-w-7xl space-y-14 ${dir}`}>
+      <div className="relative mx-auto max-w-7xl space-y-14">
         <div className="text-center">
           <h2 className="title-gradient text-2xl font-bold md:text-3xl">{stats.title}</h2>
           <div className="orange-highlight mx-auto mt-3" aria-hidden="true" />

@@ -1,7 +1,3 @@
-import type { Lang } from './types';
-
-export const LANGS: Lang[] = ['fr', 'es', 'ar'];
-
 export const SITE_URL = 'https://zertech.ma';
 
 export const ROUTES = {
@@ -48,10 +44,10 @@ export const ALL_PAGE_ROUTES = [
   ...LEGAL_ROUTES,
 ] as const;
 
-export function buildPath(lang: Lang, slug: RouteSlug): string {
-  return slug ? `/${lang}/${slug}` : `/${lang}`;
+export function buildHref(route: string): string {
+  return route ? `/${route}` : '/';
 }
 
-export function buildFullUrl(lang: Lang, slug: RouteSlug): string {
-  return `${SITE_URL}${buildPath(lang, slug)}`;
+export function buildFullUrl(slug: RouteSlug): string {
+  return `${SITE_URL}${buildHref(slug)}`;
 }
