@@ -5,6 +5,7 @@ import { buildOrganizationJsonLd } from '@/lib/organization-jsonld';
 import type { LangLayoutParams } from '@/lib/nav-types';
 import { isValidLang } from '@/lib/translations';
 import { notFound } from 'next/navigation';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export function generateStaticParams(): LangLayoutParams[] {
   return [{ lang: 'fr' }, { lang: 'es' }, { lang: 'ar' }];
@@ -42,6 +43,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
         <Navbar translations={translations} />
         <main className="relative flex-1">{children}</main>
         <Footer translations={translations} />
+        <SpeedInsights />
       </body>
     </html>
   );
