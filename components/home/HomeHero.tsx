@@ -21,8 +21,8 @@ export default function HomeHero({ hero, lang }: Props) {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_INTRO[lang])}`;
 
   return (
-    <section className="relative overflow-hidden px-4 pb-20 pt-6 md:px-8 md:pb-28 md:pt-10 lg:pt-12">
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <section className="relative overflow-hidden px-4 pb-20 pt-4 md:px-8 md:pb-28 md:pt-8 lg:pt-10">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
         {/* ── Text column ── */}
         <div className={`space-y-7 ${dir}`}>
           {/* Eyebrow */}
