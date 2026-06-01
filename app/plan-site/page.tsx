@@ -64,15 +64,6 @@ export default function PlanSitePage() {
               ))}
             </ul>
           </section>
-
-          <div className="text-center">
-            <a
-              href="/sitemap.xml"
-              className="inline-flex rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm text-zinc-300 transition-colors hover:border-primary/40 hover:text-primary"
-            >
-              {content.xmlSitemap}
-            </a>
-          </div>
         </div>
       </main>
     </PageWrapper>

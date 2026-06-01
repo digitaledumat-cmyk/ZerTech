@@ -30,7 +30,6 @@ export interface NavConfig {
   ui: {
     tagline: string;
     menuAria: string;
-    sitemapXml: string;
     copyright: string;
     whatsapp: string;
     whatsappHref: string;

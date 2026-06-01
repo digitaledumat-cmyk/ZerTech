@@ -85,14 +85,6 @@ export default function Footer({ nav }: FooterProps) {
               ))}
               <li>
                 <a
-                  href="/sitemap.xml"
-                  className="text-sm text-zinc-500 transition-colors hover:text-primary"
-                >
-                  {ui.sitemapXml}
-                </a>
-              </li>
-              <li>
-                <a
                   href={`mailto:${ui.email}`}
                   className="text-sm text-zinc-500 transition-colors hover:text-primary"
                 >

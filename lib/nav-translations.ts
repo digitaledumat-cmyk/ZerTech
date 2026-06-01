@@ -87,7 +87,6 @@ export function getNavConfig(): NavConfig {
     ui: {
       tagline: 'IPTV Premium au Maroc & Europe — Streaming 4K UHD sans coupure.',
       menuAria: 'Menu',
-      sitemapXml: 'Sitemap XML',
       copyright: `© ${new Date().getFullYear()} ZerTech. Tous droits réservés.`,
       whatsapp: '+212 664-140 211',
       whatsappHref: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
@@ -102,7 +101,6 @@ export function getPlanSiteContent() {
   return {
     title: label('planSite'),
     description: 'Accédez à l\'ensemble des pages ZerTech organisées par catégorie.',
-    xmlSitemap: nav.ui.sitemapXml,
     sections: [nav.footer.navigation, nav.footer.support, nav.footer.legal],
   };
 }
