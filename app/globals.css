@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-100 antialiased;
+  }
+}
+
+@layer utilities {
+  /* ── Premium background mesh ── */
+  .premium-grid {
+    background-image:
+      linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    transform: perspective(600px) rotateX(60deg) scale(2.5);
+    transform-origin: center top;
+  }
+
+  .premium-grid-fade {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, transparent 0%, rgb(9 9 11) 70%);
+  }
+
+  /* ── Glass / crystal cards ── */
+  .crystal-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 backdrop-blur-2xl;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.08), transparent);
+  }
+
+  /* ── Generic glass card (reviews, FAQ, etc.) ── */
+  .pricing-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 backdrop-blur-2xl;
+    background: rgba(24, 24, 27, 0.4);
+  }
+
+  /* ── Pricing tier cards ── */
+  .pricing-card-pro {
+    @apply relative overflow-hidden rounded-2xl border border-zinc-700/60 backdrop-blur-2xl;
+    background: rgba(24, 24, 27, 0.4);
+  }
+
+  .pricing-card-pro-plus {
+    @apply relative overflow-hidden rounded-2xl border border-orange-500/45 backdrop-blur-2xl;
+    background: rgba(24, 24, 27, 0.4);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.12);
+  }
+
+  .pricing-card-premium {
+    @apply relative overflow-hidden rounded-2xl border border-amber-500/55 backdrop-blur-2xl;
+    background: rgba(24, 24, 27, 0.4);
+    box-shadow:
+      0 0 0 1px rgba(251, 191, 36, 0.2),
+      0 0 40px rgba(251, 191, 36, 0.15),
+      0 0 60px rgba(249, 115, 22, 0.08);
+  }
+
+  /* ── Diagonal ribbon ── */
+  .pricing-ribbon-hot {
+    @apply absolute z-20 whitespace-nowrap px-10 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-lg;
+    background: linear-gradient(135deg, #ea580c, #dc2626);
+    top: 1.5rem;
+    right: -2rem;
+    transform: rotate(45deg);
+  }
+
+  .pricing-ribbon-elite {
+    @apply absolute z-20 whitespace-nowrap px-10 py-1.5 text-[10px] font-extrabold uppercase tracking-widest text-zinc-900 shadow-lg;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+    top: 1.5rem;
+    right: -2.25rem;
+    transform: rotate(45deg);
+  }
+
+  [dir='rtl'] .pricing-ribbon-hot,
+  [dir='rtl'] .pricing-ribbon-elite {
+    right: auto;
+    left: -2rem;
+    transform: rotate(-45deg);
+  }
+
+  /* ── Urgency offer boxes ── */
+  .urgency-box-hot {
+    @apply rounded-xl border border-red-500/40 px-4 py-3;
+    background: linear-gradient(to bottom, rgba(127, 29, 29, 0.45), rgba(69, 10, 10, 0.35));
+    box-shadow: inset 0 1px 0 rgba(248, 113, 113, 0.15);
+  }
+
+  .urgency-box-elite {
+    @apply rounded-xl border border-amber-500/45 px-4 py-3;
+    background: linear-gradient(to bottom, rgba(120, 53, 15, 0.45), rgba(69, 26, 3, 0.35));
+    box-shadow: inset 0 1px 0 rgba(251, 191, 36, 0.15);
+  }
+
+  .blink-dot {
+    @apply inline-block h-2 w-2 shrink-0 rounded-full bg-white/90;
+    animation: blink-dot 1.4s ease-in-out infinite;
+  }
+
+  .whatsapp-float-btn {
+    box-shadow:
+      0 4px 24px rgba(5, 150, 105, 0.45),
+      0 0 0 0 rgba(52, 211, 153, 0.4);
+    animation: whatsapp-glow 2.5s ease-in-out infinite;
+  }
+
+  .whatsapp-float-btn:hover {
+    box-shadow:
+      0 6px 32px rgba(5, 150, 105, 0.55),
+      0 0 0 0 rgba(52, 211, 153, 0.5);
+  }
+
+  @keyframes whatsapp-glow {
+    0%, 100% {
+      box-shadow:
+        0 4px 24px rgba(5, 150, 105, 0.45),
+        0 0 0 0 rgba(52, 211, 153, 0.35);
+    }
+    50% {
+      box-shadow:
+        0 6px 32px rgba(5, 150, 105, 0.6),
+        0 0 0 10px rgba(52, 211, 153, 0);
+    }
+  }
+
+  @keyframes blink-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.85); }
+  }
+
+  /* ── Pill badges ── */
+  .pill-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-blue-600/30 bg-blue-950/40 px-4 py-1.5 text-xs font-medium text-blue-200;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* ── Stat counter glow ── */
+  .stat-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/15 p-8 text-center backdrop-blur-2xl;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.07), rgba(24, 24, 27, 0.5) 50%, rgba(9, 9, 11, 0.85));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 4px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .stat-card-glow {
+    @apply pointer-events-none absolute -end-4 -top-4 opacity-25;
+  }
+
+  /* ── Micro benefit cards ── */
+  .micro-card {
+    @apply flex items-center gap-4 rounded-xl border border-white/15 px-5 py-4 backdrop-blur-2xl;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.06), rgba(9, 9, 11, 0.65));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .benefit-icon-ring {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm;
+  }
+
+  .pulse-emerald {
+    animation: pulse-emerald 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-emerald {
+    0%, 100% { opacity: 0.25; filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.3)); }
+    50% { opacity: 0.4; filter: drop-shadow(0 0 16px rgba(52, 211, 153, 0.55)); }
+  }
+
+  /* ── Typography gradients ── */
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 bg-clip-text text-transparent;
+  }
+
+  .title-gradient {
+    @apply bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 bg-clip-text text-transparent;
+  }
+
+  .hero-highlight {
+    @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700 bg-clip-text text-transparent;
+  }
+
+  .zertech-logo-accent {
+    filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.85));
+  }
+
+  .orange-highlight {
+    @apply h-px w-16 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent;
+  }
+}
