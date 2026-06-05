@@ -39,7 +39,7 @@ export interface SeoLanguageTexts {
 export const seoTexts: Record<Lang, SeoLanguageTexts> = {
   fr: {
     metaDescription:
-      'Abonnement IPTV Maroc ZerTech — meilleur IPTV Maroc 2026, IPTV Premium 4K, serveur IPTV stable, IPTV sans coupure. Test IPTV gratuit 24h. Casablanca, Rabat, Paris, Madrid.',
+      'Abonnement IPTV premium ZerTech au Maroc et en Europe. +45 000 chaînes, 4K UHD, anti-freeze et test gratuit 24h. Support WhatsApp 24/7 à Casablanca, Rabat et Paris.',
     keywords: [
       'IPTV Maroc',
       'Abonnement IPTV Maroc',

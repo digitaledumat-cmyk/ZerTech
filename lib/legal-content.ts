@@ -41,7 +41,8 @@ function buildLegalPages(lang: Lang): Record<LegalSlug, LegalPageContent> {
         slug: ROUTES.mentionsLegales,
         meta: {
           title: 'Mentions légales | ZerTech',
-          description: 'Informations légales sur l\'éditeur du site ZerTech, hébergement et propriété intellectuelle.',
+          description:
+            'Consultez les mentions légales de ZerTech : éditeur du site zertech.ma, hébergement Vercel, propriété intellectuelle et conditions d\'accès au service IPTV premium.',
         },
         lastUpdated: LAST_UPDATED,
         sections: [
@@ -81,7 +82,8 @@ function buildLegalPages(lang: Lang): Record<LegalSlug, LegalPageContent> {
         slug: ROUTES.conditions,
         meta: {
           title: 'Conditions d\'utilisation | ZerTech',
-          description: 'Conditions générales d\'utilisation du service IPTV ZerTech.',
+          description:
+            'Lisez les conditions générales d\'utilisation du service IPTV ZerTech : abonnement, paiement, activation, résiliation et droit applicable pour les clients au Maroc et en Europe.',
         },
         lastUpdated: LAST_UPDATED,
         sections: [
@@ -128,7 +130,8 @@ function buildLegalPages(lang: Lang): Record<LegalSlug, LegalPageContent> {
         slug: ROUTES.aup,
         meta: {
           title: 'Politique d\'utilisation acceptable | ZerTech',
-          description: 'Règles d\'utilisation acceptable du service IPTV ZerTech.',
+          description:
+            'Découvrez la politique d\'utilisation acceptable de ZerTech IPTV : usages autorisés, interdictions, partage de compte et sanctions en cas de violation des règles de service.',
         },
         lastUpdated: LAST_UPDATED,
         sections: [
@@ -161,7 +164,8 @@ function buildLegalPages(lang: Lang): Record<LegalSlug, LegalPageContent> {
         slug: ROUTES.rgpd,
         meta: {
           title: 'Conformité RGPD | ZerTech',
-          description: 'Politique de conformité au Règlement Général sur la Protection des Données (RGPD).',
+          description:
+            'Politique RGPD ZerTech : données collectées, finalités de traitement, durée de conservation et exercice de vos droits d\'accès, rectification et suppression sur zertech.ma.',
         },
         lastUpdated: LAST_UPDATED,
         sections: [
@@ -204,7 +208,8 @@ function buildLegalPages(lang: Lang): Record<LegalSlug, LegalPageContent> {
         slug: ROUTES.dmca,
         meta: {
           title: 'Politique DMCA | ZerTech',
-          description: 'Politique de notification et retrait DMCA de ZerTech.',
+          description:
+            'Politique DMCA ZerTech pour signaler une violation de droits d\'auteur : procédure de notification, agent désigné, informations requises et démarche de contre-notification.',
         },
         lastUpdated: LAST_UPDATED,
         sections: [
@@ -246,7 +251,8 @@ function buildLegalPages(lang: Lang): Record<LegalSlug, LegalPageContent> {
         slug: ROUTES.privacy,
         meta: {
           title: 'Politique de confidentialité | ZerTech',
-          description: 'Comment ZerTech collecte, utilise et protège vos données personnelles.',
+          description:
+            'Politique de confidentialité ZerTech : découvrez comment nous collectons, utilisons, stockons et protégeons vos données personnelles via zertech.ma et nos canaux de support.',
         },
         lastUpdated: LAST_UPDATED,
         sections: [
@@ -292,7 +298,8 @@ function buildLegalPages(lang: Lang): Record<LegalSlug, LegalPageContent> {
         slug: ROUTES.refund,
         meta: {
           title: 'Remboursement et retour | ZerTech',
-          description: 'Politique de remboursement ZerTech avec garantie 45 jours satisfait ou remboursé.',
+          description:
+            'Politique de remboursement ZerTech : garantie satisfait ou remboursé 45 jours, conditions d\'éligibilité, procédure via WhatsApp et délais de traitement de votre demande.',
         },
         lastUpdated: LAST_UPDATED,
         sections: [

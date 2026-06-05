@@ -377,7 +377,7 @@ function enrichHomeContent(base: HomeContent): HomeContent {
 const homeContent: Record<Lang, HomeContent> = {
   fr: {
     meta: {
-      title: 'ZerTech | Abonnement IPTV Premium Haute Stabilité au Maroc & Europe en 4K UHD',
+      title: 'ZerTech | Abonnement IPTV Premium 4K Maroc & Europe',
       description: '',
       keywords: [],
     },

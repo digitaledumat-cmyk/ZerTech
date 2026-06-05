@@ -241,8 +241,9 @@ const expandedGuide: Record<Lang, { intro: string; tips: string[]; items: Accord
 
 export function getAbonnementContent(): AbonnementContent {
   return {
-    title: 'Abonnement IPTV Premium',
-    description: 'Découvrez nos packs IPTV premium 4K UHD pour le Maroc et l\'Europe. Stabilité absolue, anti-freeze intelligent et support 24/7.',
+    title: 'Abonnement IPTV Premium Maroc & Europe | ZerTech',
+    description:
+      'Découvrez nos packs IPTV premium 4K UHD pour le Maroc et l\'Europe : +45 000 chaînes, anti-freeze intelligent, activation WhatsApp et support technique 24h/24.',
     intro: 'ZerTech propose la meilleure expérience IPTV premium avec plus de 45 000 chaînes, 180 000 VOD et une infrastructure serveur haute disponibilité. Choisissez le pack adapté à vos besoins et profitez d\'un streaming cristallin sans coupure.',
     features: [
       'Activation instantanée via WhatsApp',
@@ -259,7 +260,8 @@ export function getAbonnementContent(): AbonnementContent {
 export function getGuideContent(): GuideContent {
   return {
     title: 'Guide d\'installation complet',
-    description: 'Tutoriels pas à pas pour installer ZerTech IPTV sur Smart TV, Android, Firestick et iOS.',
+    description:
+      'Guide complet d\'installation ZerTech IPTV sur Smart TV Samsung, LG, Android, Firestick et iOS. Étapes détaillées, astuces anti-freeze et activation en moins de 10 minutes.',
     ...expandedGuide.fr,
   };
 }
@@ -267,7 +269,8 @@ export function getGuideContent(): GuideContent {
 export function getFaqPageContent(): FaqPageContent {
   return {
     title: 'Centre d\'aide & FAQ',
-    description: 'Toutes les réponses sur la stabilité, l\'activation, le remboursement et le support ZerTech IPTV.',
+    description:
+      'FAQ ZerTech IPTV : réponses sur la stabilité du streaming, l\'activation instantanée, le remboursement 45 jours, les appareils simultanés et le support WhatsApp disponible 24h/24.',
     intro: 'Consultez notre FAQ complète ou contactez notre support WhatsApp disponible 24h/24 pour une assistance personnalisée.',
     items: expandedFaq.fr,
   };
@@ -275,8 +278,9 @@ export function getFaqPageContent(): FaqPageContent {
 
 export function getContactContent(): ContactContent {
   return {
-    title: 'Contactez-nous',
-    description: 'Support ZerTech 24h/24 via WhatsApp, email et formulaire de contact.',
+    title: 'Contact & Support IPTV ZerTech | Assistance 24h/24',
+    description:
+      'Contactez l\'équipe ZerTech IPTV 24h/24 et 7j/7 via WhatsApp, email ou formulaire. Support technique, abonnement, activation et remboursement traités en moins de 5 minutes.',
     intro: 'Notre équipe est disponible 24h/24 et 7j/7 pour répondre à toutes vos questions sur l\'abonnement, l\'installation et le support technique.',
     coordinates: {
       whatsapp: '+212 664 140 211',
@@ -298,8 +302,9 @@ export function getContactContent(): ContactContent {
 
 export function getBlogContent(): BlogContent {
   return {
-    title: 'Blog ZerTech',
-    description: 'Articles SEO sur l\'IPTV premium, l\'installation, les comparatifs et les actualités streaming au Maroc et en Europe.',
+    title: 'Blog IPTV ZerTech | Guides, tutoriels et actualités',
+    description:
+      'Retrouvez nos guides IPTV premium, tutoriels d\'installation Smart TV et Android, comparatifs et conseils streaming pour le Maroc et l\'Europe sur le blog ZerTech.',
     intro: 'Guides, tutoriels et analyses pour tirer le meilleur parti de votre abonnement IPTV ZerTech.',
     readMore: 'Lire l\'article',
     backToBlog: 'Retour au blog',

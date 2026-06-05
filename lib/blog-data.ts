@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
     image: '/images/blog/installer-iptv-smart-tv-samsung-lg.svg',
     title: 'Comment installer IPTV sur Smart TV Samsung et LG',
     description:
-      'Tutoriel détaillé pour configurer IPTV Smarters Pro sur votre Smart TV en moins de 10 minutes.',
+      'Tutoriel détaillé pour configurer IPTV Smarters Pro sur Smart TV Samsung et LG : installation, connexion Xtream Codes et activation ZerTech en moins de 10 minutes.',
     content: [
       'L\'installation d\'IPTV sur Smart TV Samsung ou LG est simple et ne nécessite aucune compétence technique avancée.',
       'Commencez par ouvrir le Samsung Smart Hub ou le LG Content Store et recherchez « IPTV Smarters Pro ».',

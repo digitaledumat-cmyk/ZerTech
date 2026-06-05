@@ -100,7 +100,8 @@ export function getPlanSiteContent() {
   const nav = getNavConfig();
   return {
     title: label('planSite'),
-    description: 'Accédez à l\'ensemble des pages ZerTech organisées par catégorie.',
+    description:
+      'Plan du site ZerTech : accédez rapidement à toutes nos pages — abonnement IPTV, guide d\'installation, FAQ, blog, contact et informations légales pour zertech.ma.',
     sections: [nav.footer.navigation, nav.footer.support, nav.footer.legal],
   };
 }
