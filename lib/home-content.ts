@@ -895,6 +895,9 @@ export function getHomeContent(): HomeContent {
 export function buildHomeJsonLd() {
   const content = getHomeContent();
   const keywordString = content.meta.keywords.join(', ');
+  const reviewItems = content.reviews.items;
+  const avgRating =
+    reviewItems.reduce((sum, review) => sum + review.rating, 0) / reviewItems.length;
 
   return [
     {
@@ -914,27 +917,15 @@ export function buildHomeJsonLd() {
     },
     {
       '@context': 'https://schema.org',
-      '@type': 'Service',
+      '@type': 'Product',
       name: 'ZerTech IPTV Premium — Abonnement IPTV Maroc',
       description: content.meta.description,
-      keywords: keywordString,
+      image: 'https://zertech.ma/icon.png',
       url: 'https://zertech.ma',
-      provider: {
-        '@type': 'Organization',
+      brand: {
+        '@type': 'Brand',
         name: 'ZerTech',
-        url: 'https://zertech.ma',
-        logo: 'https://zertech.ma/icon.png',
-        telephone: '+212664140211',
-        address: { '@type': 'PostalAddress', addressCountry: 'MA' },
-        areaServed: HOME_SEO_CITIES.map((city) => ({ '@type': 'City', name: city })),
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '5',
-          reviewCount: '634',
-          bestRating: '5',
-        },
       },
-      serviceType: 'Abonnement IPTV Premium',
       offers: content.pricing.packs.map((pack) => ({
         '@type': 'Offer',
         name: pack.name,
@@ -942,10 +933,22 @@ export function buildHomeJsonLd() {
         priceCurrency: 'MAD',
         description: `${pack.longDescription} ${pack.features.join(', ')}`,
       })),
-      review: content.reviews.items.map((review) => ({
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: avgRating.toFixed(1),
+        reviewCount: '634',
+        bestRating: '5',
+        worstRating: '1',
+      },
+      review: reviewItems.map((review) => ({
         '@type': 'Review',
         author: { '@type': 'Person', name: review.name },
-        reviewRating: { '@type': 'Rating', ratingValue: review.rating, bestRating: 5 },
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: review.rating,
+          bestRating: 5,
+          worstRating: 1,
+        },
         reviewBody: review.text,
       })),
     },
